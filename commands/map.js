@@ -1,3 +1,4 @@
 const kill = require('./kill');
 const pokedex = require('./pokedex');
-module.exports = {kill,pokedex};
+const help = require('./help');
+module.exports = {kill,pokedex,help};
