@@ -4,7 +4,7 @@ const unknown = require('./commands/unknown');
 module.exports = function(message){
    var arguments = message.cleanContent.trim().split(' ').filter(function(entry) { return entry != ''; });;
    var command = arguments[1];
-   if (arguments[0].toLowerCase() === 'minori') {
+   if (arguments[0] && arguments[0].toLowerCase() === 'minori') {
      if (arguments[1]) {
        if (commandMap[arguments[1].toLowerCase()]) {
          if (arguments.length > 2) {
