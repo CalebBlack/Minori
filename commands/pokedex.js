@@ -11,6 +11,7 @@ module.exports = function(message,args=[]){
       var image = images[Math.floor(Math.random() * images.length)][1];
       var embed = new Discord.RichEmbed({title:titleCase(response.name),fields:[{name:'ID',value:response.id},{name:(types.length > 1 ? "Types" : "Type"),value:types.join(', ')},{name:"Weight",value:response.weight}]});
       embed.setImage(image);
+      embed.setURL('https://www.pokemon.com/us/pokedex/'+response.name);
       message.channel.sendEmbed(embed);
     }).catch(error=>{
       if (error.statusCode && error.statusCode == 404) {
