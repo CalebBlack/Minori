@@ -1,9 +1,10 @@
-const upAliases = ['up','plus','+','↑'];
-const downAliases = ['down','minus','-','↓'];
+const upAliases = ['up','plus','+','↑','stay','😊','😄','👌','😍','❤️','👍'];
+const downAliases = ['down','minus','-','↓','leave','☹️','😞','😦','💔','👎'];
 
 var votes = {};
+var judgeListeners = [];
 
-module.exports = function(message,args=[]){
+function vote(message,args=[]){
   if (!votes[message.channel.id]) {
     votes[message.channel.id] = {};
   }
@@ -38,4 +39,11 @@ module.exports = function(message,args=[]){
 function judge(channel) {
   let total = Object.values(votes[channel.id]).reduce(function (a, b) {return a + b}, 0);
   channel.send('Current Tally: '+total);
+  judgeListeners.forEach(callback=>{
+    callback(channel,total);
+  });
 }
+function onJudge(callback){
+  judgeListeners.push(callback);
+}
+module.exports = {vote,onJudge};
