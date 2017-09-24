@@ -27,6 +27,8 @@ module.exports = function(message){
          } else {
            vote.vote(message);
          }
+       } else {
+         message.author.send('I am disabled in that channel. Sorry ☹️');
        }
        return;
      }
