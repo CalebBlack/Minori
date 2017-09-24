@@ -7,7 +7,11 @@ module.exports = function(message){
    if (arguments[0] === 'minori') {
      if (arguments[1]) {
        if (commandMap[arguments[1]]) {
-         commandMap[arguments[1]](message);
+         if (arguments.length > 2) {
+           commandMap[arguments[1]](message,arguments.slice(2));
+         } else {
+           commandMap[arguments[1]](message);
+         }
        } else {
          unknown(message);
        }

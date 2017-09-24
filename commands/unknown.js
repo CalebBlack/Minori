@@ -1,3 +1,3 @@
 module.exports = function(message){
-  message.channel.send("I don't understand :(");
+  message.channel.send("I don't understand 😞");
 }
