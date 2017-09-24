@@ -14,6 +14,5 @@ module.exports = function(message){
      } else {
        mention(message);
      }
-   }
- }
+  }
 }

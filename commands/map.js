@@ -1,2 +1,2 @@
 
-module.exports = {minori:minori};
+module.exports = {};
