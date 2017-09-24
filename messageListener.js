@@ -6,9 +6,9 @@ module.exports = function(message){
    var command = arguments[1];
    if (arguments[0].toLowerCase() === 'minori') {
      if (arguments[1]) {
-       if (commandMap[arguments[1]]) {
+       if (commandMap[arguments[1].toLowerCase()]) {
          if (arguments.length > 2) {
-           commandMap[arguments[1]](message,arguments.slice(2));
+           commandMap[arguments[1].toLowerCase()](message,arguments.slice(2));
          } else {
            commandMap[arguments[1]](message);
          }
