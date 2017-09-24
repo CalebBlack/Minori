@@ -5,7 +5,7 @@ const P = new Pokedex();
 module.exports = function(message,args=[]){
   if (args[0]){
     message.channel.send('Looking up '+titleCase(args[0]));
-    P.getPokemonByName(args[0]).then((response)=>{
+    P.getPokemonByName(encodeURIComponent(args[0])).then((response)=>{
       const types = response.types.map(typeObject=>{return titleCase(typeObject.type.name)});
       var images = Object.entries(response.sprites).filter(entry=>{return entry[1] && !entry[0].includes('back')});
       var image = images[Math.floor(Math.random() * images.length)][1];
